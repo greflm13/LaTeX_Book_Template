@@ -1,0 +1,40 @@
+\documentclass[
+twoside=true,														% Zweiseitig
+openany
+]{scrbook}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{blindtext}
+%\usepackage{lmodern}
+%\usepackage{graphicx}
+\usepackage{times}
+\usepackage[ngerman]{babel}
+\usepackage{emptypage}
+\usepackage[]{scrlayer-scrpage}
+\usepackage[bookmarks]{hyperref}
+
+\title{Book 1}
+\author{Florian Greistorfer}
+\date{}
+
+
+\begin{document}
+\frontmatter
+\maketitle
+\clearscrheadfoot
+\include{copyright}
+
+\mainmatter
+\ofoot[\pagemark]{\pagemark}
+\tableofcontents
+\newcounter{chapters}
+\newcommand{\kapitel}[1][]{
+\stepcounter{chapters}
+\chapter*{\arabic{chapters}. Kapitel #1}
+\addcontentsline{toc}{chapter}{\arabic{chapters}. Kapitel #1}
+\markboth{}{}
+}
+
+\include{content}
+
+\end{document}
