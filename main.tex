@@ -5,18 +5,27 @@ openany
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{blindtext}
-%\usepackage{lmodern}
-%\usepackage{graphicx}
 \usepackage{times}
 \usepackage[ngerman]{babel}
-\usepackage{emptypage}
 \usepackage[]{scrlayer-scrpage}
 \usepackage[bookmarks]{hyperref}
+\usepackage{xifthen}
 
-\title{Book 1}
+\title{Buch 1}
 \author{Florian Greistorfer}
 \date{}
 
+\newcounter{chapters}
+\newcommand{\kapitel}[1][]{
+\stepcounter{chapters}
+\ifthenelse{\isempty{#1}}{\chapter*{Kapitel \arabic{chapters}}
+\addcontentsline{toc}{chapter}{Kapitel \arabic{chapters}}
+\markboth{}{}
+}{
+\chapter*{Kapitel \arabic{chapters}: #1}
+\addcontentsline{toc}{chapter}{Kapitel \arabic{chapters}: #1}
+\markboth{}{}
+}}
 
 \begin{document}
 \frontmatter
@@ -27,13 +36,6 @@ openany
 \mainmatter
 \ofoot[\pagemark]{\pagemark}
 \tableofcontents
-\newcounter{chapters}
-\newcommand{\kapitel}[1][]{
-\stepcounter{chapters}
-\chapter*{\arabic{chapters}. Kapitel #1}
-\addcontentsline{toc}{chapter}{\arabic{chapters}. Kapitel #1}
-\markboth{}{}
-}
 
 \include{content}
 
