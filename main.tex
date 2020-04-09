@@ -10,10 +10,17 @@ openany
 \usepackage[]{scrlayer-scrpage}
 \usepackage[bookmarks]{hyperref}
 \usepackage{xifthen}
+\usepackage{titling}
 
 \title{Buch 1}
 \author{Florian Greistorfer}
 \date{}
+
+\makeatletter
+\let\newtitle\@title
+\let\newauthor\@author
+\let\newdate\@date
+\makeatother
 
 \newcounter{chapters}
 \newcommand{\kapitel}[1][]{
