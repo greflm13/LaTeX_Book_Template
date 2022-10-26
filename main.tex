@@ -1,11 +1,13 @@
 \documentclass[
-twoside=true,														% Zweiseitig
-openany
+twoside=true,								% Zweiseitig
+openany,
+12pt,
+a5paper
 ]{scrbook}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{blindtext}
-\usepackage{times}
+\usepackage{libertine}
 \usepackage[ngerman]{babel}
 \usepackage[]{scrlayer-scrpage}
 \usepackage[bookmarks]{hyperref}
@@ -37,7 +39,7 @@ openany
 \begin{document}
 \frontmatter
 \maketitle
-\clearscrheadfoot
+\clearpairofpagestyles
 \include{copyright}
 
 \mainmatter
